@@ -1,0 +1,54 @@
+{
+  "name": "semantic-schema-parser",
+  "version": "0.0.9",
+  "description": "A NodeJS module to extract micro-data from html docs",
+  "main": "./lib/schemaParser",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vespa/semantic-schema-parser.git"
+  },
+  "keywords": [
+    "schema",
+    "schema.org",
+    "microdata",
+    "micro-data",
+    "microformats",
+    "parser",
+    "htmlParser"
+  ],
+  "author": {
+    "name": "Danilo C. Vespa"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vespa/semantic-schema-parser/issues"
+  },
+  "homepage": "https://github.com/vespa/semantic-schema-parser",
+  "dependencies": {
+    "cheerio": "~0.13.1",
+    "request": "~2.34.0"
+  },
+  "_id": "semantic-schema-parser@0.0.9",
+  "dist": {
+    "shasum": "a91b8d3915cbdbde3bbfb4f7f743bf948b122851",
+    "tarball": "http://registry.npmjs.org/semantic-schema-parser/-/semantic-schema-parser-0.0.9.tgz"
+  },
+  "_from": "semantic-schema-parser@",
+  "_npmVersion": "1.4.6",
+  "_npmUser": {
+    "name": "dvespa",
+    "email": "d.vespa@gmail.com"
+  },
+  "maintainers": [
+    {
+      "name": "dvespa",
+      "email": "d.vespa@gmail.com"
+    }
+  ],
+  "directories": {},
+  "_shasum": "a91b8d3915cbdbde3bbfb4f7f743bf948b122851",
+  "_resolved": "https://registry.npmjs.org/semantic-schema-parser/-/semantic-schema-parser-0.0.9.tgz"
+}
