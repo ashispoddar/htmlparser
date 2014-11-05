@@ -6,9 +6,10 @@ var app = express();
 
 app.get('/products',function(req,res){
 
-    var url = 'http://www.shutterfly.com/photo-gifts/photo-mugs';
-    //var url = 'http://www.shutterfly.com/sitesearch/iphone?sflyPage=1';
-	request(url, function (error, response, html) {
+    var url = req.query.targetUrl;
+    console.log('target url=' + url);
+    
+    request(url, function (error, response, html) {
         
         if (!error && response.statusCode == 200) {
             var products = [];
@@ -40,6 +41,7 @@ app.get('/products',function(req,res){
         }
     });
 }); //end appget
+console.log('starting webapp at port 3000');
 app.listen(3000);
 
 
