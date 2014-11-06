@@ -1,0 +1,25 @@
+<div id="slot_1" class="categoryItem masonry-brick" personalizable="1" itemscope="itemscope" itemtype="http://schema.org/Product" style="position: absolute; top: 0px; left: 244px;">
+        some test data
+                <a href="/photo-gifts/custom-iphone-cases?categoryCode=1084024" itemprop="url" class="catItemLink" data="New Arrivals-Custom iPhone Cases" name="lid=PG_New Arrivals-Custom iPhone Cases_Product">
+                <div class="productWrapper">
+                <img src="http://cdn0.staticsfly.com/i/shop/catshots/pg_grid_iphone_case_img_v2-v141020659900011489.jpg" itemprop="image" class="productImage"/>
+                <div class="productMetaDeta">
+                    <div class="productHeader avenir85Heavy" itemprop="name">Custom iPhone Cases </div>
+                    <div class="pricing default">
+                        <span class="cat_item_price">From $39.99</span>
+                    </div>
+					<div class="pricing personalized sale" style="display:none">
+				        <span class="cat_item_price">From <span class="origPrice strikethru"></span><span class="salePrice cat_pricing_highlight"></span>
+                        <span class="cat_item_sale">Save up to <span class="percentDiscount"></span></span></span>
+					</div>
+					<div class="pricing personalized regular" style="display:none">
+				        <div class="cat_item_price">From <span class="origPrice"></span></div>
+					</div>
+                    <div itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/Offer">
+                        <meta itemprop="price" content="$39.99"/>
+	                    <meta itemprop="priceCurrency" content="USD"/>
+                    </div> 
+                 </div>
+            </div>
+        </a>
+</div>

@@ -1,11 +1,38 @@
 var request = require('request');
 var cheerio = require('cheerio');
 var express = require('express');
+var URI = require('URIjs');
 
+var MongoClient = require('mongodb').MongoClient
 var app = express();
-app.get('/', function(req,res){
-	res.send("apification of SFLY web");
+
+app.get('/test1', function(req,res){
+    
+    var data = req.query.a;
+    console.log(data);
+    var uri = URI(data);
+    var data = uri.query(true);
+    console.log(data);
+    res.send(data);
+                
 });
+app.get('/test', function(req,res){
+	
+    var url = 'mongodb://localhost:27017/sfly';
+    MongoClient.connect(url, function(err, db) {
+        console.log("connected correctly to server");
+        db.collection('category', function(err, collection) {
+            console.log('collection found');
+            collection.find().toArray(function(err, docs) {
+                console.log('collection has data');
+                console.log(docs);
+                db.close();
+                res.send(docs);
+            });
+        });
+    });
+});
+
 app.get('/products',function(req,res){
 
     var url = req.query.targetUrl;
@@ -18,10 +45,22 @@ app.get('/products',function(req,res){
             var $ = cheerio.load(html);
             $('span.cat_item_price').each(function(i, element){
                 var a = $(this).prev();
+                
+                //product name
                 var name = a.text();
                 name = name.replace(/[\n\r\t]/g, '').trim();
 
-                var url =  a.children('.thumbName').children().attr('href');;
+                //product url
+                var url =  a.children('.thumbName').children().attr('href');
+                url = 'http://www.shutterly.com/' + url;
+                
+                var queryParams = URI(url).query(true);
+                
+                var categoryId = queryParams['categoryCode'];
+                var productId = queryParams['productCode'];
+                var skuId = queryParams['skuCode'];
+                
+                //product pricing
                 var pricing = $(this).text();
                 pricing = pricing.replace(/[\n\r]/g,'').trim().split('\t');
                 var fromPrice;
@@ -32,14 +71,19 @@ app.get('/products',function(req,res){
                     }
                 }
                 var product = {
+                        id : productId,
+                        skuId : skuId,
+                        categoryId : categoryId,
                         name: name,
                         fromPrice :fromPrice,
-                        url:url
+                        url: url
                 };
                 console.log(product);
                 products.push(product);
             });
-        res.send(products);
+            
+            //db operation
+            res.send(products);
         }
     });
 }); //end appget
