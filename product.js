@@ -6,8 +6,10 @@ var express = require('express');
 var app = express();
 
 app.get('/product',function(req,res){
-		
-    request('http://www.shutterfly.com/photo-gifts/custom-iphone-cases/my-sunshine-iphone-case?skuCode=1092986', function (error, response, html) {
+	
+    var url = req.query.targetUrl;
+    //var url ='http://www.shutterfly.com/photo-gifts/custom-iphone-cases/my-sunshine-iphone-case?skuCode=1092986';
+    request(, function (error, response, html) {
         if (!error && response.statusCode == 200) {
 
             //fs.writeFile("data.html",html);
