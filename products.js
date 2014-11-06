@@ -89,6 +89,10 @@ app.get('/products',function(req,res){
                 products.push(product);
             });
             
+            //populate product details
+            for(var i= 0;  i < products.length;i++){
+                console.log("targetUrl = " + products[i].url);
+            }
             //db operation
             res.send(products);
         }
@@ -103,6 +107,8 @@ app.get('/product',function(req,res){
 
             var $  = cheerio.load(html);
             var productInfo = $('#pipProductInfoBox');
+            //var product = getProductDetails(jsonDOM,productInfo);
+            
             
             var headline = productInfo.find('#pipProductHeadline').text();
             var summary = productInfo.find('#pipShortDescription').text();
